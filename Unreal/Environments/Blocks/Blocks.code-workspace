@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"name": "Blocks",
+			"path": "."
+		},
+		{
+			"name": "UE4",
+			"path": "/home/biu/UnrealEngine-4.27.0-final/UnrealEngine-4.27.0-release"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp",
+			"vadimcn.vscode-lldb",
+			"ms-vscode.mono-debug"
+		]
+	}
+}
