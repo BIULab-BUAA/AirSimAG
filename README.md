@@ -110,18 +110,9 @@ Using AirSim Python/C++ APIs you can:
 
 ## Citation
 
-If you use this platform in your academic work, please cite the original AirSim paper:
+If you use this platform in your academic work, please cite the following papers:
 
 ```bibtex
-@inproceedings{airsim2017fsr,
-  author = {Shital Shah and Debadeepta Dey and Chris Lovett and Ashish Kapoor},
-  title = {AirSim: High-Fidelity Visual and Physical Simulation for Autonomous Vehicles},
-  year = {2017},
-  booktitle = {Field and Service Robotics},
-  eprint = {arXiv:1705.05065},
-  url = {https://arxiv.org/abs/1705.05065}
-}
-
 @misc{airsimag2026cui,
       title={AirSimAG: A High-Fidelity Simulation Platform for Air-Ground Collaborative Robotics}, 
       author={Yangjie Cui and Xin Dong and Boyang Gao and Jinwu Xiang and Daochun Li and Zhan Tu},
@@ -131,6 +122,17 @@ If you use this platform in your academic work, please cite the original AirSim 
       primaryClass={cs.RO},
       url={https://arxiv.org/abs/2603.23079}, 
 }
+
+@inproceedings{airsim2017fsr,
+  author = {Shital Shah and Debadeepta Dey and Chris Lovett and Ashish Kapoor},
+  title = {AirSim: High-Fidelity Visual and Physical Simulation for Autonomous Vehicles},
+  year = {2017},
+  booktitle = {Field and Service Robotics},
+  eprint = {arXiv:1705.05065},
+  url = {https://arxiv.org/abs/1705.05065}
+}
+
+
 ```
 
 ---
