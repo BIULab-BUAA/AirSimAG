@@ -1,128 +1,271 @@
-# AirSimAG: Air-Ground Collaborative Simulation Platform
+# AirSimAG 🚀
 
-**AirSimAG** (Air-Ground Collaborative Simulation) is an air-ground collaborative simulation platform based on [Microsoft AirSim](https://github.com/Microsoft/AirSim). It provides high-fidelity, physically and visually realistic simulation for joint tasks involving **Unmanned Aerial Vehicles (UAVs)** and **Unmanned Ground Vehicles (UGVs)**. Built on [Unreal Engine](https://www.unrealengine.com/), it supports air-ground collaborative **perception, mapping, planning, tracking, and formation**.
-
-The project aims to become a foundational platform for **air-ground collaborative AI research**, enabling experimentation and validation of deep learning, computer vision, and reinforcement learning algorithms in heterogeneous unmanned systems.
+<p align="center"><strong>Air–Ground Cooperative Simulation Platform</strong></p>
 
 <p align="center">
-  <img src="top.png" alt="AirSimAG Overview" width="800"/>
+  <a href="https://www.unrealengine.com/"><img src="https://img.shields.io/badge/Unreal%20Engine-4.27-0E1128?style=flat-square&logo=unrealengine" alt="Unreal Engine 4.27"/></a>
+  <a href="https://github.com/microsoft/AirSim"><img src="https://img.shields.io/badge/Microsoft-AirSim-0078D4?style=flat-square&logo=microsoft" alt="AirSim"/></a>
+  <a href="https://www.ros.org/"><img src="https://img.shields.io/badge/ROS-optional-22314E?style=flat-square&logo=ros" alt="ROS"/></a>
+  <a href="https://arxiv.org/abs/2603.23079"><img src="https://img.shields.io/badge/arXiv-2603.23079-b31b1b?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv paper"/></a>
 </p>
+
+<p align="center">
+  <img src="top.png" alt="AirSimAG overview" width="820"/>
+</p>
+
+**AirSimAG** is a **high-fidelity simulator** for cooperative air–ground robotics. It lets you simulate **UAVs (drones) + UGVs (ground vehicles)** together, with:
+
+- 🌍 Shared environments & globally consistent states  
+- 🛰️ Multi-modal sensors (RGB, depth, segmentation, LiDAR, IMU…)  
+- 🤖 Unified ROS & RPC APIs  
+- ⚙️ Pipelines for mapping, planning, tracking, and multi-agent formations  
+
+Perfect for **RL, vision-based planning, and cooperative control experiments**!
 
 ---
 
-## AirSim-based Enhancements
+## 📑 Contents
 
-AirSimAG extends the original AirSim with the following features:
-
-| Feature | Description |
-|---------|-------------|
-| **Air-Ground Coordination** | Simultaneous simulation of UAVs (multirotor) and UGVs (ground vehicles) in a shared scene |
-| **Unified ROS Interface** | Dedicated RPC ports for UAV/UGV with a common ROS Wrapper for message and service APIs |
-| **Heterogeneous Sensor Abstraction** | CarSim API and Multirotor API with RGB/Depth/Segmentation cameras, LiDAR, and IMU |
-| **Task Stack** | Data collection and algorithm validation for mapping, planning, tracking, and multi-agent formation |
+| § | |
+|:-:|---|
+| 1 | [✨ Key Features](#key-features) |
+| 2 | [🎮 Simulation Capabilities](#simulation-capabilities) |
+| 3 | [🎬 Task Demos](#task-demos) |
+| 4 | [🧰 Getting Started](#getting-started) |
+| 5 | [🚀 Quick Start](#quick-start) |
+| 6 | [📖 Citation](#citation) |
+| 7 | [📜 License](#license) |
 
 ---
 
-## Air-Ground Task Demos
+## ✨ Key Features
 
-📹 Demo video available in fig_airsimag/AirSimAG.mp4
+| | |
+|:---|:---|
+| 🤖 **Air–ground coordination** | Tight coupling between UAVs & UGVs with shared state & coordinated control |
+| 🧩 **Unified ROS interface** | RPC + ROS wrapper; synchronized topics & services for multi-agent experiments |
+| 🛰️ **Sensors** | RGB, depth, segmentation, LiDAR, IMU; multi-camera & multi-vehicle support |
+| 🌍 **Space–time consistency** | Globally aligned coordinates + synchronized timestamps for multi-agent fusion |
+| ⚙️ **Task-oriented workflows** | Pipelines & hooks for mapping, planning, tracking, formation control |
 
-### 1. Mapping
+---
 
-Cooperative environment mapping using UAV and UGV, with synchronized scene, point cloud, and trajectory visualization.
+## 🎮 Simulation Capabilities
+
+AirSimAG inherits AirSim features:
+
+- **Vehicles:** Multirotor (UAV), Car (UGV)  
+- **Sensors:** Configurable in `settings.json`  
+- **ROS Wrapper:** Optional, fully integrated  
+
+### 📷 Vision & images
+
+| Modality | Description |
+|:---------|:------------|
+| **RGB / Scene** | Color cameras for learning & perception |
+| **Depth** | Planar / perspective depth |
+| **Segmentation** | Semantic / instance masks |
+| **Extras** | Optical flow, surface normals, IR-style view (optional) |
+
+### 📡 Sensors
+
+| Sensor | Description |
+|:-------|:-----------|
+| **LiDAR** | 3D point cloud scans |
+| **IMU** | Linear acceleration + angular velocity |
+| **GPS / GNSS** | Global positioning & navigation |
+| **Other** | Barometer, magnetometer, distance sensors |
+
+### 🌍 Environment & State
+
+| | |
+|:---|:---|
+| **Odometry / Kinematics** | Pose, velocity, acceleration; ROS-friendly |
+| **Clock / Time stepping** | Simulation time, pause/step for repeatable experiments |
+| **Weather** | Rain, snow, dust, wind |
+| **Collision & World** | Meshes, ray casts, collision detection |
+
+---
+
+## 🎬 Task Demos
+
+🎥 **Demo video:** `fig_airsimag/AirSimAG.mp4`
+
+### 🗺️ Mapping
+
+Cooperative mapping with UAV + UGV, synchronized scene & point clouds.
 
 <p align="center">
-  <img src="fig_airsimag/task_mapping.png" alt="Mapping Task" width="900"/>
+  <img src="fig_airsimag/task_mapping.png" alt="Mapping task" width="900"/>
 </p>
 
-### 2. Path Planning
+### 🛤️ Path Planning
 
-Path planning in complex multi-level scenarios (overpasses, tunnels) with trajectory visualization and analysis.
+Multi-level path planning: overpasses, tunnels, obstacles.
 
 <p align="center">
-  <img src="fig_airsimag/task_planning.png" alt="Planning Task" width="900"/>
+  <img src="fig_airsimag/task_planning.png" alt="Planning task" width="900"/>
 </p>
 
-### 3. Target Tracking
+### 🎯 Target Tracking
 
-Air-ground tracking: UAV for global aerial view, UGV for local ground view.
+UAV: aerial global view  
+UGV: local ground view
 
 <p align="center">
-  <img src="fig_airsimag/task_tracking0.png" alt="Tracking - Multi-view" width="900"/>
+  <img src="fig_airsimag/task_tracking0.png" alt="Tracking task" width="900"/>
 </p>
 
-### 4. Multi-agent Formation
+### 🛸 Multi-agent Formation
 
-Air-ground formation: four UAVs (square) and three UGVs (circle).
+4 UAVs (square) + 3 UGVs (circle)
 
 <p align="center">
-  <img src="fig_airsimag/task_multi.png" alt="Multi-agent Formation" width="500"/>
+  <img src="fig_airsimag/task_multi.png" alt="Formation task" width="500"/>
 </p>
 
+**Hardware:** RTX 4090 + Intel i7-14700KF + 62GB RAM  
 
-
-The multi-agent formation task is performed on a workstation wquipped with an NVIDIA RTX 4090 GPU (24,564 MiB), an Intel Core i7-14700KF CPU, and 62 GB of system memory. The performance metrics during the multi-agent simulation experiment with UE "NoDisplay" mode are as follows:
-
-<div style="text-align: center;">
-
-| Metric | Performance |
-|:-------|:-----------:|
+| Metric | Value |
+|:-------|:-----:|
 | **Num. UAV** | 4 |
 | **Num. UGV** | 3 |
-| **Frequency of Odometry ROS Topic (Hz)** | >25 |
-| **Frequency of Image ROS Topic (Hz)** | >5 |
-| **FPS of Unreal Engine Simulation** | 45~60 |
-| **Memory Usage of Unreal Engine (MB)** | ~14,852 |
+| **Odometry ROS Topic (Hz)** | >25 |
+| **Image ROS Topic (Hz)** | >5 |
+| **UE4 FPS** | 45–60 |
+| **Memory Usage (MB)** | ~14,852 |
 
-</div>
-
-
-> **💾 ROS Bag**  
-> Pre-recorded rosbag files are available on [Baidu Netdisk](https://pan.baidu.com/s/1k7ELMYJ1HHQqjnw8iYFZTg?pwd=e7jx) (Password: `e7jx`)
-
+> 💾 **Download pre-recorded rosbags:** [Baidu Netdisk](https://pan.baidu.com/s/1k7ELMYJ1HHQqjnw8iYFZTg?pwd=e7jx) (password: `e7jx`)
 
 ---
 
-## Getting Started
+## 🧰 Getting Started
 
-### Dependencies
+**Dependencies:**
 
-- [Unreal Engine 4.27](https://www.unrealengine.com/)
-- [AirSim](https://github.com/Microsoft/AirSim) (as Unreal plugin)
-- ROS (optional, for ROS Wrapper and algorithm nodes)
+- 🎮 Unreal Engine 4.27  
+- 🧩 AirSim plugin  
+- 🤖 ROS (optional)
 
-### Resources
+**Documentation & Build:**
 
-- [AirSim Documentation](https://microsoft.github.io/AirSim/)
-- Build guides: [Windows](https://microsoft.github.io/AirSim/build_windows) · [Linux](https://microsoft.github.io/AirSim/build_linux)
+- [AirSim Docs](https://microsoft.github.io/AirSim/)  
+- Build instructions: [Windows](https://microsoft.github.io/AirSim/build_windows) · [Linux](https://microsoft.github.io/AirSim/build_linux)  
 
-### Programmatic Control
-
-Using AirSim Python/C++ APIs you can:
-
-- Retrieve RGB, depth, and segmentation images  
-- Read LiDAR and IMU data  
-- Control UAV and UGV motion and state  
-- Integrate via ROS Wrapper  
-- Use other AirSim features
+**APIs:** Python / C++ for images, LiDAR, IMU, vehicle control, ROS integration.
 
 ---
 
-## Citation
+## 🚀 Quick Start
 
-If you use this platform in your academic work, please cite the following papers:
+### 1️⃣ Clone repo
+
+```bash
+git clone https://github.com/air-sim/airsimag.git
+cd airsim
+```
+
+### 2️⃣ Build the Unreal Engine project
+
+```bash
+# Linux
+./build.sh
+```
+
+Copy compiled Plugins to your environment project (e.g., CityParkEnvironmentCollection 4.27).
+
+### 3️⃣ Run the simulation
+
+```bash
+# Linux
+cd ~/UnrealEngine-4.27.0-files
+./Engine/Binaries/Linux/UE4Editor
+```
+
+Set **GameMode** to **AirSimGameMode**.
+
+### 4️⃣ Play the simulation
+
+Copy `fig_airsimag/settings.json` to your AirSim `settings.json` (Documents on Windows, `~/Documents/AirSim` on Linux). This example configures an air–ground setup with LiDAR and cameras; sensor options are described in the [AirSim documentation](https://microsoft.github.io/AirSim/).
+
+Click **Play** in the Unreal Editor.
+
+### 5️⃣ Control the vehicle
+
+#### 📷 5.1 AirSim Python API — camera recording
+
+```bash
+cd AirSimAG/ros
+python src/example/camera_record_ag.py
+```
+
+#### 📡 5.2 AirSim Python API — LiDAR recording
+
+```bash
+cd AirSimAG/ros
+python src/example/lidar_record_ag.py
+```
+
+#### 🛰️ 5.3 ROS Wrapper
+
+```bash
+cd AirSimAG/ros
+catkin_make
+source devel/setup.bash
+roslaunch airsim_ros_pkgs airsim_all.launch
+```
+
+Use `rostopic list` to inspect odometry, images, and control topics.
+
+#### ⌨️ 5.4 Keyboard control example
+
+```bash
+cd AirSimAG/ros
+source devel/setup.bash
+python src/example/keyboard_ctrl.py
+```
+
+This node publishes body-frame velocity commands for the UAV and car control commands for the UGV. If no key is pressed in the polling window, both vehicles are commanded to **stop** (UAV zero velocity, UGV brake applied). Key bindings for `ros/src/example/keyboard_ctrl.py`:
+
+**🚁 UAV (multirotor)**
+
+| Key | Action |
+|:---:|:---|
+| **W** | Move forward (positive body-frame forward velocity) |
+| **S** | Move backward |
+| **A** | Strafe left |
+| **D** | Strafe right |
+| **F** | Ascend (negative vertical velocity in NED; “up” in world frame) |
+| **B** | Descend (positive vertical velocity in NED; “down” in world frame) |
+| **Y** | Yaw (positive angular rate about the body vertical axis) |
+
+**🚗 UGV (ground vehicle)**
+
+Keys **8**, **2**, **4**, **6**, and **5** follow a **numeric keypad layout** (8 = up, 2 = down, 4 = left, 6 = right, 5 = center).
+
+| Key | Action |
+|:---:|:---|
+| **8** | Drive forward (throttle, straight) |
+| **2** | Drive backward (reverse throttle, straight) |
+| **4** | Forward motion with steering to the **left** |
+| **6** | Forward motion with steering to the **right** |
+| **5** | Release throttle and steering (coast / stop maneuver; brake command cleared in this example) |
+
+**🔑 Common**
+
+| Key | Action |
+|:---:|:---|
+| **Q** | Quit the keyboard control node |
+
+> 💡 **Note:** Ensure **Num Lock** is on if you use a keyboard where the number keys share the numpad; otherwise use the dedicated digit keys that produce `8`, `2`, `4`, `6`, `5` in the terminal.
+
+---
+
+## 📖 Citation
+
+If you use this platform in academic work, please cite AirSim and AirSimAG:
 
 ```bibtex
-@misc{airsimag2026cui,
-      title={AirSimAG: A High-Fidelity Simulation Platform for Air-Ground Collaborative Robotics}, 
-      author={Yangjie Cui and Xin Dong and Boyang Gao and Jinwu Xiang and Daochun Li and Zhan Tu},
-      year={2026},
-      eprint={2603.23079},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2603.23079}, 
-}
-
 @inproceedings{airsim2017fsr,
   author = {Shital Shah and Debadeepta Dey and Chris Lovett and Ashish Kapoor},
   title = {AirSim: High-Fidelity Visual and Physical Simulation for Autonomous Vehicles},
@@ -132,11 +275,19 @@ If you use this platform in your academic work, please cite the following papers
   url = {https://arxiv.org/abs/1705.05065}
 }
 
-
+@misc{airsimag2026cui,
+      title={AirSimAG: A High-Fidelity Simulation Platform for Air-Ground Collaborative Robotics}, 
+      author={Yangjie Cui and Xin Dong and Boyang Gao and Jinwu Xiang and Daochun Li and Zhan Tu},
+      year={2026},
+      eprint={2603.23079},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2603.23079}, 
+}
 ```
 
 ---
 
-## License
+## 📜 License
 
 All rights reserved.
