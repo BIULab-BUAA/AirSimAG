@@ -276,15 +276,6 @@ Keys **8**, **2**, **4**, **6**, and **5** follow a **numeric keypad layout** (8
 If you use this platform in academic work, please cite AirSim and AirSimAG:
 
 ```bibtex
-@inproceedings{airsim2017fsr,
-  author = {Shital Shah and Debadeepta Dey and Chris Lovett and Ashish Kapoor},
-  title = {AirSim: High-Fidelity Visual and Physical Simulation for Autonomous Vehicles},
-  year = {2017},
-  booktitle = {Field and Service Robotics},
-  eprint = {arXiv:1705.05065},
-  url = {https://arxiv.org/abs/1705.05065}
-}
-
 @misc{airsimag2026cui,
       title={AirSimAG: A High-Fidelity Simulation Platform for Air-Ground Collaborative Robotics}, 
       author={Yangjie Cui and Xin Dong and Boyang Gao and Jinwu Xiang and Daochun Li and Zhan Tu},
@@ -293,6 +284,15 @@ If you use this platform in academic work, please cite AirSim and AirSimAG:
       archivePrefix={arXiv},
       primaryClass={cs.RO},
       url={https://arxiv.org/abs/2603.23079}, 
+}
+
+@inproceedings{airsim2017fsr,
+  author = {Shital Shah and Debadeepta Dey and Chris Lovett and Ashish Kapoor},
+  title = {AirSim: High-Fidelity Visual and Physical Simulation for Autonomous Vehicles},
+  year = {2017},
+  booktitle = {Field and Service Robotics},
+  eprint = {arXiv:1705.05065},
+  url = {https://arxiv.org/abs/1705.05065}
 }
 ```
 
