@@ -99,6 +99,10 @@ Cooperative mapping with UAV + UGV, synchronized scene & point clouds.
   <img src="fig_airsimag/task_mapping.png" alt="Mapping task" width="900"/>
 </p>
 
+(a) Mapping scene. (b) Fused point cloud map: UAV points in blue, UGV
+points in green. (c) UAV and UGV trajectories during the mapping task.
+
+
 ### 🛤️ Path Planning
 
 Multi-level path planning: overpasses, tunnels, obstacles.
@@ -106,6 +110,9 @@ Multi-level path planning: overpasses, tunnels, obstacles.
 <p align="center">
   <img src="fig_airsimag/task_planning.png" alt="Planning task" width="900"/>
 </p>
+(a) UGV planned path from UAV’s first-person view. (b) UGV
+first-person view during planning. (c) Executed UGV trajectory.
+
 
 ### 🎯 Target Tracking
 
@@ -115,6 +122,9 @@ UGV: local ground view
 <p align="center">
   <img src="fig_airsimag/task_tracking0.png" alt="Tracking task" width="900"/>
 </p>
+
+(a) Unreal Engine scene showing the third-person view, UAV first-person
+view, and UGV first-person view. (b) Tracking map.
 
 ### 🛸 Multi-agent Formation
 
