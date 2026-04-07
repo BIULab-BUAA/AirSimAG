@@ -182,7 +182,7 @@ cd AirSimAG
 ./build.sh
 ```
 
-Copy compiled Plugins to your environment project (e.g., CityParkEnvironmentCollection 4.27).
+Copy compiled **Plugins** folder to your environment project (e.g., CityParkEnvironmentCollection 4.27).
 
 ### 3️⃣ Run the simulation
 
