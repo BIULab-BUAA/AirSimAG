@@ -171,7 +171,7 @@ view, and UGV first-person view. (b) Tracking map.
 ### 1️⃣ Clone repo
 
 ```bash
-git clone [https://github.com/air-sim/airsimag.git](https://github.com/BIULab-BUAA/AirSimAG)
+git clone https://github.com/BIULab-BUAA/AirSimAG
 cd AirSimAG
 ```
 
