@@ -50,7 +50,7 @@ def main():
     print("Keyboard Control Start")
     print("-----------------------")
     print("UAV: w s a d f y")
-    print("UGV: arrow keys")
+    print("UGV: 8 2 4 6 5")
 
     while not rospy.is_shutdown():
 
@@ -117,7 +117,7 @@ def main():
             car.steering = 0.4
             car.brake = 0
 
-        elif key == '5':   # right
+        elif key == '5':   # stop
             car.throttle = 0.0
             car.steering = 0.0
             car.brake = 0
